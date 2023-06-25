@@ -12,7 +12,7 @@ class _CadastroViewState extends State<CadastroView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 1, 1, 1),
+       backgroundColor: const Color.fromARGB(255, 0, 0, 139),
         title: const Text('Cadastro'),
       ),
       body: Center(
