@@ -3,6 +3,7 @@ import 'package:flutter_app/shared/custom_export.dart';
 import 'package:flutter_app/view/cadastro_view.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:logger/logger.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -67,6 +68,9 @@ class _LoginViewState extends State<LoginView> {
       Fluttertoast.showToast(
           msg: 'Login Success', backgroundColor: Colors.green);
     } else {
+      final logger = Logger();
+      logger.i(_loginController.text);
+
       Fluttertoast.showToast(msg: 'Login Error', backgroundColor: Colors.red);
     }
   }
