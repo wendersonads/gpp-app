@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class AccountService {
-    
+
     private final AccountRepository repository;
 
     public Account register(Account account) {
@@ -31,10 +31,9 @@ public class AccountService {
         return acc.get();
     }
 
-
     private void existsByUsername(String username) {
         if (repository.findByUsername(username).isPresent()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Username already registered!");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Nome já cadastrado!");
         }
     }
 }
