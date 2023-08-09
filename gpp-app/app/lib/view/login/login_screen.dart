@@ -43,7 +43,19 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               TextField(
                 controller: _usernameController,
-                decoration: const InputDecoration(hintText: 'username'),
+                decoration: const InputDecoration(
+                  hintText: 'CPF',
+                  suffixIcon: Icon(
+                    Icons.person,
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                    ),
+                    // Defina a cor desejada para a borda em foco
+                  ),
+                  iconColor: Colors.black,
+                ),
               ),
               const SizedBox(
                 height: 25,
@@ -51,16 +63,29 @@ class _LoginScreenState extends State<LoginScreen> {
               TextField(
                 obscureText: true,
                 controller: _passwordController,
-                decoration: const InputDecoration(hintText: 'password'),
+                decoration: const InputDecoration(
+                  hintText: 'Senha',
+                  suffixIcon: Icon(Icons.password),
+                ),
               ),
               const SizedBox(
                 height: 25,
               ),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                ),
                 onPressed: () {
                   _enabled ? loginAction() : null;
                 },
-                child: const Text('LOGIN'),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(Icons
+                        .login), // Substitua "Icons.login" pelo ícone que você deseja usar
+                    SizedBox(width: 8), // Espaço entre o ícone e o texto
+                  ],
+                ),
               ),
               TextButton(
                 onPressed: () {
