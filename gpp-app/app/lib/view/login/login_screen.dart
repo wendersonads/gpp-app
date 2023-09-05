@@ -48,12 +48,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   suffixIcon: Icon(
                     Icons.person,
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.black,
-                    ),
-                    // Defina a cor desejada para a borda em foco
-                  ),
+                  // focusedBorder: OutlineInputBorder(
+                  //   borderSide: BorderSide(
+                  //     color: Colors.black,
+                  //   ),
+                  //   // Defina a cor desejada para a borda em foco
+                  // ),
                   iconColor: Colors.black,
                 ),
               ),
@@ -72,9 +72,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 25,
               ),
               ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                ),
                 onPressed: () {
                   _enabled ? loginAction() : null;
                 },
@@ -91,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 onPressed: () {
                   toRegister();
                 },
-                child: const Text('CREATE ACCOUNT'),
+                child: const Text('CRIAR CONTA'),
               ),
             ],
           ),
@@ -107,11 +104,13 @@ class _LoginScreenState extends State<LoginScreen> {
     if (StringUtil.isEmpty(usr) || StringUtil.isEmpty(pwd)) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
+          backgroundColor: Colors.red,
           duration: Duration(seconds: 1),
-          content: Text('Invalid login or password!'),
+          content: Text('Login ou senha inválidos!'),
         ),
       );
     } else {
+      print(usr);
       bool result = await _loginService.tryLogin(usr, pwd);
       if (result) {
         _usernameController.clear();
@@ -127,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             duration: Duration(seconds: 1),
-            content: Text('Login error!'),
+            content: Text('Erro ao logar!'),
           ),
         );
       }

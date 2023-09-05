@@ -36,7 +36,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'REGISTRATION',
+                'CADASTRO',
                 style: TextStyle(fontSize: 35),
               ),
               const SizedBox(
@@ -61,13 +61,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 onPressed: () {
                   registerAction();
                 },
-                child: const Text('REGISTER'),
+                child: const Text('CADASTRAR'),
               ),
               TextButton(
                 onPressed: () {
                   _enabled ? toLogin() : null;
                 },
-                child: const Text('BACK TO LOGIN'),
+                child: const Text('VOLTAR'),
               ),
             ],
           ),
@@ -83,8 +83,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
     if (StringUtil.isEmpty(usr) || StringUtil.isEmpty(pwd)) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
+          backgroundColor: Colors.red,
           duration: Duration(seconds: 1),
-          content: Text('Invalid login or password!'),
+          content: Text('Login ou senha inválidos!'),
         ),
       );
     } else {
@@ -103,7 +104,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             duration: Duration(seconds: 1),
-            content: Text('Registration error!'),
+            content: Text('Erro ao realizar cadastro!'),
           ),
         );
       }
