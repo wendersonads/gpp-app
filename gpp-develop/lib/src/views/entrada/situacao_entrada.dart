@@ -1,0 +1,1 @@
+enum SituacaoEntrada { None, Aberto, Concluido, Cancelado }
