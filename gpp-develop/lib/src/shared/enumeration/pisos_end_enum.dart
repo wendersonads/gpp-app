@@ -1,0 +1,1 @@
+enum PisosEndEnum { notChange, loading, change }
