@@ -1,0 +1,59 @@
+
+<p-dialog header="Adicionar Estoque" [(visible)]="displayDialog" (onHide)="onDialogHide()">
+  <form [formGroup]="pecaEstoqueForm">
+    <div class="p-fluid">
+      <div class="p-field">
+        <label for="peca" class="p-d-block">Peça</label>
+        <p-autoComplete formControlName="peca" [suggestions]="filteredPecas" (completeMethod)="searchPecas($event)"
+          [field]="'descricao'" [dropdown]="true" placeholder="Selecione a peça" (onSelect)="selectedPeca = $event">
+        </p-autoComplete>
+        <small class="p-invalid" *ngIf="pecaEstoqueForm.get('peca')?.invalid && pecaEstoqueForm.get('peca')?.touched">
+          Peça é obrigatória!
+        </small>
+      </div>
+      <div class="p-field">
+        <label for="saldoDisponivel" class="p-d-block">Saldo Disponível</label>
+        <input type="number" id="saldoDisponivel" formControlName="saldoDisponivel" class="p-inputtext" />
+        <small class="p-invalid"
+          *ngIf="pecaEstoqueForm.get('saldoDisponivel')?.invalid && pecaEstoqueForm.get('saldoDisponivel')?.touched">
+          Saldo é obrigatório!
+        </small>
+      </div>
+      <div class="p-field">
+        <label for="quantidadeMinima" class="p-d-block">Quantidade Mínima</label>
+        <input type="number" id="quantidadeMinima" formControlName="quantidadeMinima" class="p-inputtext" />
+        <small class="p-invalid"
+          *ngIf="pecaEstoqueForm.get('quantidadeMinima')?.invalid && pecaEstoqueForm.get('quantidadeMinima')?.touched">
+          Quantidade mínima é obrigatória!
+        </small>
+      </div>
+      <div class="p-field">
+        <label for="quantidadeMaxima" class="p-d-block">Quantidade Máxima</label>
+        <input type="number" id="quantidadeMaxima" formControlName="quantidadeMaxima" class="p-inputtext" />
+        <small class="p-invalid"
+          *ngIf="pecaEstoqueForm.get('quantidadeMaxima')?.invalid && pecaEstoqueForm.get('quantidadeMaxima')?.touched">
+          Quantidade máxima é obrigatória!
+        </small>
+      </div>
+      <div class="p-field">
+        <label for="quantidadeIdeal" class="p-d-block">Quantidade Ideal</label>
+        <input type="number" id="quantidadeIdeal" formControlName="quantidadeIdeal" class="p-inputtext" />
+        <small class="p-invalid"
+          *ngIf="pecaEstoqueForm.get('quantidadeIdeal')?.invalid && pecaEstoqueForm.get('quantidadeIdeal')?.touched">
+          Quantidade ideal é obrigatória!
+        </small>
+      </div>
+    </div>
+
+
+<div style="margin-left: 10px; margin-top: 15px;">
+  <button style="background-color:#3B82F6; margin-left: -15px;" pButton type="submit" class="p-button-primary" [disabled]="pecaEstoqueForm?.invalid" (click)="salvar()">
+    <i class="pi pi-save"></i>Salvar
+  </button>
+
+  <button style="background-color:#3B82F6;" pButton type="button" class="p-button-secondary" (click)="cancelar()">
+    <i class="pi pi-times"></i>Cancelar
+  </button>
+</div>
+
+<p-messages [(value)]="msgs"></p-messages>

@@ -17,13 +17,7 @@ class NavbarWidget extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (Dispositivo.mobile(context.width)) {
       return NavbarMobile();
-    } else if (Dispositivo.tablet(context.width)) {
-      return NavbarMobile();
-    } else {
-      return NavbarDesktop();
-    }
   }
 }
 
@@ -50,7 +44,7 @@ class NavbarMobile extends StatelessWidget {
                         Icons.menu,
                         color: Colors.white,
                       ),
-                      onPressed: () => Scaffold.of(context).openDrawer()),
+                      onPressed: () => Scaffold.of(context).openDrawer(),),
                   Text('GPP',
                       style: TextStyle(
                           color: Colors.white,

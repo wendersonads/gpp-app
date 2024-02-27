@@ -1,0 +1,52 @@
+
+<p-dialog header="Editar Fornecedor" [(visible)]="displayDialog" (onHide)="onDialogHide()">
+<form [formGroup]="fornecedorForm">
+  <div class="form-group">
+    <table>
+
+      <tr>
+        <td>
+          <label for="nomeFornecedor" class="p-d-block">Fornecedor:</label>
+        </td>
+        <td>
+          <input type="text" id="nomeFornecedor" placeholder="5654" formControlName="nomeFornecedor"
+            class="p-inputtext" />
+        </td>
+        <td>
+          <div *ngIf="fornecedorForm.get('nomeFornecedor')?.invalid && fornecedorForm?.get('nomeFornecedor')?.touched"
+            class="p-invalid">O nome do Fornecedor é obrigatório</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="email" class="p-d-block">Email:</label>
+        </td>
+        <td>
+          <input type="email" id="email" placeholder="exemple@gmail.com" formControlName="email" class="p-inputtext" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="cnpj" class="p-d-block">CNPJ:</label>
+        </td>
+        <td>
+          <p-inputMask mask="99.999.999/9999-99" formControlName="cnpj" id="cnpj" [disabled]="!fornecedorForm.get('cnpj')?.enabled"></p-inputMask>
+        </td>
+
+
+    </table>
+
+  </div>
+
+  <br /><br />
+
+  <div class="card flex justify-content-start gap-2">
+    <p-toast></p-toast>
+    <p-button style="background-color:#3B82F6;" (click)="editar()" icon="pi pi-save" label="Salvar"></p-button>
+    <p-button style="background-color:#3B82F6;"  (click)="cancelar()" icon="pi pi-times" label="Cancelar" class="p-button-danger"></p-button>
+  </div>
+
+  <br /><br />
+</form>
+</p-dialog>
+<br /><br />

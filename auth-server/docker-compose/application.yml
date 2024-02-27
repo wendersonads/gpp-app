@@ -1,0 +1,26 @@
+server:
+  port: 30014
+  servlet:
+    contextPath: /auth-server
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/auth
+    username: username
+    password: password
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+      dialect: org.hibernate.dialect.PostgreSQL94Dialect
+    properties:
+      hibernate:
+        temp.use_jdbc_metadata_defaults: false
+
+logging:
+  level:
+    org.springframework.security.oauth2.provider.token.store: ERROR
+    org.springframework.security.oauth2.provider.endpoint: ERROR
+

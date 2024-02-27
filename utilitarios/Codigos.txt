@@ -1,0 +1,51 @@
+Códigos usavéis do pra API@Repository
+
+---HQL
+public class PessoaDaoImpl {
+
+	@Autowired
+	private EntityManager em;
+	
+	public List<Pessoa> listarPorNome(String nome, Boolean funcionario){
+		String sql = "select * from pessoa p where lower(p.nome) like lower(:nome)";
+		
+		if(funcionario != null) {
+			sql += " and p.funcionario";
+		}
+		
+		Query query = em.createNativeQuery(sql, Pessoa.class);
+		query.setParameter("nome", nome);
+		return query.getResultList();
+	}
+--Busca
+
+private CpfCnpjValidacao() {
+	}
+
+	public static boolean isCpfCnpjValidacaoLista(List<Pessoa> pessoas, String valorProcurado) {
+
+		String valorProcuradoNumero = extractNumbers(valorProcurado);
+
+		Boolean resultado = false;
+
+		int cont = 0;
+
+		for (Iterator<Pessoa> iterator = pessoas.iterator(); iterator.hasNext();) {
+
+			Pessoa pessoa = (Pessoa) iterator.next();
+
+			String cpfPessoaProcuradoNumero = extractNumbers(pessoa.getCpf());
+
+			if (cpfPessoaProcuradoNumero != null) {
+				if ((valorProcuradoNumero).equals(cpfPessoaProcuradoNumero)) {
+					cont++;
+				}
+			}
+		}
+
+		if (cont == 0) {
+			resultado = true;
+		}
+
+		return resultado;
+	}

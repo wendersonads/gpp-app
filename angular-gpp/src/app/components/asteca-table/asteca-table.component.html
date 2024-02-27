@@ -1,0 +1,86 @@
+<div class="page-title">
+    <h1>{{ pageTitle }}</h1>
+  </div>
+ 
+  <p-messages></p-messages>
+
+  <div class="button-container">
+    <button style="border-radius: 10px; margin-bottom: 15px; margin-left: 10px" pButton pRipple icon="pi pi-plus" class="p-button-rounded p-button-success" (click)="adicionarAsteca()"></button>
+  </div>
+
+   <div class="card">
+    <p-table #dt2 [value]="astecas" [sortField]="'idAsteca'" [sortOrder]="-1" [tableStyle]="{ 'min-width': '75rem' }"
+    [rows]="5" [paginator]="true" [globalFilterFields]="['idAsteca', 'nomeAsteca', 'observacao', 'descricaoProduto', 'dataCriacao', 'situacaoAsteca', 'tipoAsteca', 'motivoCriacaoAsteca.denominacao']"
+    [rowHover]="true" dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [showCurrentPageReport]="true">
+  
+    <ng-template pTemplate="caption">
+      <div class="flex">
+        <span class="p-input-icon-left ml-auto">
+          <i class="pi pi-search"></i>
+          <input type="text" pInputText (input)="onSearch($event)" placeholder="Search" />
+        </span>
+      </div>
+    </ng-template>
+  
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID Asteca</th>
+        <th>Observação</th>
+        <th>Descrição do Produto</th>
+        <th>Data Criação</th>
+        <th>Situação</th>
+        <th>Tipo</th>
+        <th>Motivo</th>
+        <th></th>
+      </tr>
+      <tr>
+        <th>
+          <p-columnFilter type="text" field="idAsteca"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="observacao"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="descricaoProduto"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="dataCriacao"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="situacaoAsteca"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="tipoAsteca"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="motivoCriacaoAsteca.denominacao"></p-columnFilter>
+        </th>
+        <th></th>
+      </tr>
+    </ng-template>
+  
+    <ng-template pTemplate="body" let-asteca>
+      <tr>
+        <td>{{ asteca.idAsteca }}</td>
+        <td>{{ asteca.observacao }}</td>
+        <td>{{ asteca.descricaoProduto }}</td>
+        <td>{{ asteca.dataCriacao | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
+
+
+        <td>{{ asteca.situacaoAsteca }}</td>
+        <td>{{ asteca.tipoAsteca }}</td>
+        <td>{{ asteca.motivoCriacaoAsteca.denominacao }}</td>
+        <td>
+          <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+            (click)="editeAsteca(asteca)"></button>
+          <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+            (click)="deleteAsteca(asteca.idAsteca)"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  
+  </div>
+  
+ 

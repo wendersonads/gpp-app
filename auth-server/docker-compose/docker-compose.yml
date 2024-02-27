@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  acqualead-auth-server:
+    image: chicocx/auth-server
+    ports:
+      - "30014:30014"
+    volumes:
+      - "./application.yml:/app/config/application.yml"

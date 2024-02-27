@@ -1,0 +1,28 @@
+
+
+<p-dialog header="Editar Produto" [(visible)]="displayDialog" (onHide)="onDialogHide()">
+  <form [formGroup]="produtoForm">
+    <div class="p-fluid">
+      <div class="form-group">
+        <label for="nomeProduto" class="p-d-block">Produto</label>
+        <input type="text" id="nomeProduto" placeholder="Guarda-roupa 3 portas" formControlName="descricao" class="p-inputtext" />
+        <div *ngIf="produtoForm.get('descricao')?.invalid && produtoForm.get('descricao')?.touched" class="p-invalid">O nome do produto é obrigatório</div>
+      </div>
+
+      <div class="p-field">
+        <label for="fornecedor" class="p-d-block">Fornecedor</label>
+        <p-autoComplete formControlName="fornecedor" [suggestions]="filteredFornecedors"
+          (completeMethod)="searchFornecedors($event)" [field]="'nomeFornecedor'" [dropdown]="true"
+          placeholder="Selecione o fornecedor" (onSelect)="selectedFornecedor = $event"></p-autoComplete>
+        <div *ngIf="produtoForm.get('fornecedor')?.invalid && produtoForm.get('fornecedor')?.touched" class="p-invalid">Fornecedor é obrigatório</div>
+      </div>
+
+      <div class="p-field">
+          <button style="background-color:#3B82F6;" pButton type="submit" class="p-button-primary" (click)="editar()" [disabled]="produtoForm?.invalid"><i class="pi pi-save"></i>Editar</button>
+          <button style="background-color:#3B82F6;"  pButton type="button" class="p-button-secondary" (click)="cancelar()"><i class="pi pi-times"></i>Cancelar</button>
+      </div>
+
+      <p-messages [(value)]="msgs"></p-messages>
+    </div>
+  </form>
+</p-dialog>

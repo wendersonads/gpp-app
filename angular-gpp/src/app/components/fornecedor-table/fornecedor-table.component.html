@@ -1,0 +1,100 @@
+<div class="page-title">
+    <h1>{{ pageTitle }}</h1>
+  </div>
+
+  <div class="button-container">
+    <button style="border-radius: 10px; margin-bottom: 15px; margin-left: 10px" pButton pRipple icon="pi pi-plus" class="p-button-rounded p-button-success" (click)="adicionarFornecedor()"></button>
+  </div>
+
+<!-- <h1>Peças Lista</h1> -->
+
+<div class="card">
+    <p-table #dt2 [value]="fornecedores" [sortField]="'idFornecedor'" [sortOrder]="-1"
+  [tableStyle]="{ 'min-width': '50rem' }" [rows]="5" [paginator]="true"
+  [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
+  [tableStyle]="{ 'min-width': '75rem' }" [rowHover]="true" dataKey="id"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+
+  <ng-template pTemplate="caption">
+    <div class="flex">
+      <span class="p-input-icon-left ml-auto">
+        <i class="pi pi-search"></i>
+
+
+
+        <!-- <input pInputText type="text" (keyup)="onSearch($event)" placeholder="Search keyword" /> -->
+      </span>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="header">
+    <tr>
+
+      <!-- <th>idFornecedor</th> -->
+      <th>ID Fornecedor</th>
+      <!-- <th>numero</th>
+        <th>codigoFabrica</th>
+        <th>unidade</th> -->
+      <th>Fornecedor</th>
+      <th>Email</th>
+      <th>Cnpj</th>
+      <!-- <th>profundidade</th>
+        <th>unidadeMedida</th>
+        <th>volumes</th>
+        <th>active</th>
+        <th>custo</th>
+        <th>cor</th>
+        <th>material</th>
+        <th>idFornecedor</th>
+        <th>materialFabricacao</th>
+        <th>produtosFornecedor</th> -->
+      <th></th>
+    </tr>
+
+    <tr>
+      <th>
+        <p-columnFilter type="text" field="idFornecedor"></p-columnFilter>
+      </th>
+      <th>
+        <p-columnFilter type="text" field="nomeFornecedor"></p-columnFilter>
+      </th>
+      <th>
+        <p-columnFilter type="text" field="email"></p-columnFilter>
+      </th>
+      <th>
+        <p-columnFilter type="text" field="cnpj"></p-columnFilter>
+      </th>
+
+      <th>
+      </th>
+
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-fornecedor>
+    <tr>
+      <td>{{ fornecedor.idFornecedor }}</td>
+      <td>{{ fornecedor.nomeFornecedor }}</td>
+      <td>{{ fornecedor.email }}</td>
+      <td>{{ fornecedor.cnpj }}</td>
+      <!-- <td>{{ fornecedor.altura }}</td>
+        <td>{{ fornecedor.largura }}</td> -->
+      <!-- <td>{{ fornecedor.profundidade }}</td>
+        <td>{{ fornecedor.unidadeMedida }}</td>
+        <td>{{ fornecedor.volumes }}</td>
+        <td>{{ fornecedor.active }}</td>
+        <td>{{ fornecedor.custo }}</td>
+        <td>{{ fornecedor.cor }}</td>
+        <td>{{ fornecedor.material }}</td>
+        <td>{{ fornecedor.idFornecedor }}</td>
+        <td>{{ fornecedor.materialFabricacao }}</td>
+        <td>{{ fornecedor.produtosFornecedor }}</td> -->
+      <td>
+        <button style="background-color: blue;" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+          (click)="editeFornecedor(fornecedor)"></button>
+        <button style="background-color: red;" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+          (click)="deleteFornecedor(fornecedor.idFornecedor)"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+</div>

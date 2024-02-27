@@ -1,0 +1,8 @@
+export enum SituacaoAstecaEnum {
+  EMABERTO = 'EMABERTO',
+  EMEXECUCAO = 'EMEXECUCAO',
+  CANCELADA = 'CANCELADA',
+  FINALIZADA = 'FINALIZADA',
+}
+
+  

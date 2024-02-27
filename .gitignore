@@ -1,0 +1,61 @@
+# Build and Release Folders
+bin-debug/
+bin-release/
+[Oo]bj/
+[Bb]in/
+
+# Angular
+angular-gpp/.angular/
+angular-gpp/node_modules/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse
+.settings/
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Maven
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Spring Tools Suite
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# NetBeans
+auth-server/nbproject/private/
+auth-server/build/
+auth-server/nbbuild/
+auth-server/dist/
+auth-server/nbdist/
+auth-server/.nb-gradle/
+
+# Application-specific files
+gpp-api/src/main/resources/application.properties
+gpp-api/src/main/resources/static/
+auth-server/target/
+angular-gpp/package-lock.json
+angular-gpp/package.json
+
+# Gradle Wrapper
+gradle/wrapper/gradle-wrapper.properties
+
+# Other executables
+*.swf
+*.air
+*.ipa
+*.apk
+
+

@@ -1,0 +1,27 @@
+<h1>Agenda</h1>
+<div class="form-group">
+  <label for="nome" class="label">idCliente:</label>
+  <input type="text" nbInput fullWidth id="idCliente" placeholder="1" [(ngModel)]="cliente.idCliente">
+</div><br/>
+<div class="form-group">
+  <label for="telefone" class="label">nome:</label>
+  <input type="text" nbInput fullWidth id="nome" placeholder="Zezinho do Pit" [(ngModel)]="cliente.nome">
+</div><br/>
+<div class="form-group">
+  <label for="endereco" class="label">cpfCnpj:</label>
+  <input type="text" nbInput fullWidth id="cpfCnpj" placeholder="80623145850" [(ngModel)]="cliente.cpfCnpj">
+</div><br/>
+
+<div class="form-group">
+  <label for="email" class="label">Endereço:</label>
+  <input type="text" nbInput fullWidth id="email" placeholder="zedopit@gmail.com" [(ngModel)]="cliente.email">
+</div><br/>
+<div class="form-group">
+  <label for="endereco" class="label">endereco:</label>
+  <input type="text" nbInput fullWidth id="endereco" placeholder="Rua 2" [(ngModel)]="cliente.enderecos">
+</div><br/>
+
+<button (click)="salvar()" nbButton status="primary">Salvar</button>
+
+<br/><br/>
+

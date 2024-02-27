@@ -1,0 +1,27 @@
+.p-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .p-panelMenu-wrapper {
+    width: 300px;
+    order: 1;
+  }
+  
+  .p-components {
+    flex: 1;
+    order: 2;
+  }
+  
+  @media (max-width: 767px) {
+    .p-card {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .p-panelMenu-wrapper {
+      width: 100%;
+    }
+  }
+  

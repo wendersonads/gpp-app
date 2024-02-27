@@ -1,0 +1,157 @@
+<div class="page-title">
+  <h1>Adicionar Peça</h1>
+</div>
+
+<div class="p-grid">
+  <div class="p-col-12">
+    <div class="p-card">
+      <div class="p-card-body">
+        
+        <form [formGroup]="pecaForm" (ngSubmit)="salvar()">
+          <table>
+            <tr>
+              <td>
+                <div class="p-field">
+                  <label for="numero" class="p-d-block">Número</label>
+                  <input type="text" id="numero" placeholder="5654" formControlName="numero" class="p-inputtext" />
+                  <div *ngIf="pecaForm.get('numero')?.invalid && pecaForm.get('numero')?.touched" class="p-invalid">
+                    Número é obrigatório</div>
+                </div>
+
+              </td>
+              <td>
+                <div class="p-field">
+                  <label for="codigoFabrica" class="p-d-block">Código de Fábrica</label>
+                  <input type="text" id="codigoFabrica" placeholder="CF1234" formControlName="codigoFabrica"
+                    class="p-inputtext" />
+                  <div *ngIf="pecaForm.get('codigoFabrica')?.invalid && pecaForm.get('codigoFabrica')?.touched"
+                    class="p-invalid">Código de Fábrica é obrigatório</div>
+                </div>
+
+              </td>
+              <td>
+                <div class="p-field">
+                  <label for="unidade" class="p-d-block">Unidade</label>
+                  <input type="text" id="unidade" placeholder="5" formControlName="unidade" class="p-inputtext" />
+                  <div *ngIf="pecaForm.get('unidade')?.invalid && pecaForm.get('unidade')?.touched" class="p-invalid">
+                    Unidade é obrigatória</div>
+                </div>
+              </td>
+              <td>
+                <div class="p-field">
+                  <label for="descricao" class="p-d-block">Descrição</label>
+                  <input type="text" id="descricao" placeholder="Mola 3x4" formControlName="descricao"
+                    class="p-inputtext" />
+                  <div *ngIf="pecaForm.get('descricao')?.invalid && pecaForm.get('descricao')?.touched"
+                    class="p-invalid">Descrição é obrigatória</div>
+                </div>
+              </td>
+              <td>
+                <div class="p-field">
+                  <label for="idFornecedor" class="p-d-block label">Nome do Fornecedor: </label>
+                  <label id="idFornecedor" class="p-d-block">{{ selectedProduto?.fornecedor?.nomeFornecedor }}</label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="p-field">
+                  <label for="altura" class="p-d-block">Altura</label>
+                  <input type="text" id="altura" placeholder="2,5" formControlName="altura" class="p-inputtext" />
+                  <div *ngIf="pecaForm.get('altura')?.invalid && pecaForm.get('altura')?.touched" class="p-invalid">
+                    Altura é obrigatória</div>
+                </div>
+              </td>
+              <td>
+                <div class="p-field">
+                  <label for="largura" class="p-d-block">Largura</label>
+                  <input type="text" id="largura" placeholder="1,2" formControlName="largura" class="p-inputtext" />
+                  <div *ngIf="pecaForm.get('largura')?.invalid && pecaForm.get('largura')?.touched" class="p-invalid">
+                    Largura é obrigatória</div>
+                </div>
+              </td>
+              <td>
+                <div class="p-field">
+                  <label for="profundidade" class="p-d-block">Profundidade</label>
+                  <input type="text" id="profundidade" placeholder="0,5" formControlName="profundidade"
+                    class="p-inputtext" />
+                  <div *ngIf="pecaForm.get('profundidade')?.invalid && pecaForm.get('profundidade')?.touched"
+                    class="p-invalid">Profundidade é obrigatória</div>
+                </div>
+              </td>
+              <td>
+                <div class="p-field">
+                  <label for="unidadeMedida" class="p-d-block label">Unidade de Medida</label>
+                  <input type="text" id="unidadeMedida" placeholder="1,3" formControlName="unidadeMedida"
+                    class="p-inputtext" />
+                  <div *ngIf="pecaForm.get('unidadeMedida')?.invalid && pecaForm.get('unidadeMedida')?.touched"
+                    class="p-invalid">Unidade de Medida é obrigatória</div>
+                </div>
+              </td>
+              <td>
+                <div class="p-field">
+                  <label for="produto" class="label">Produto:</label>
+                  <p-dropdown id="produto" [options]="produtos" formControlName="produto" optionLabel="descricao"
+                    [ngClass]="{ 'p-invalid': pecaForm.get('produto')?.invalid && pecaForm.get('produto')?.touched }"></p-dropdown>
+                  <small class="p-error"
+                    *ngIf="pecaForm.get('produto')?.invalid && pecaForm.get('produto')?.touched">Produto é
+                    obrigatório.</small>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="p-field">
+                  <label for="volumes" class="p-d-block label">Volumes</label>
+                  <input type="text" id="volumes" placeholder="4,5" formControlName="volumes" class="p-inputtext" />
+                  <div *ngIf="pecaForm.get('volumes')?.invalid && pecaForm.get('volumes')?.touched" class="p-invalid">
+                    Volumes é obrigatório</div>
+                </div>
+              </td>
+              <td>
+                <div class="p-field">
+                  <label for="custo" class="p-d-block label">Custo</label>
+                  <input type="text" id="custo" placeholder="50,00" formControlName="custo" class="p-inputtext" />
+                  <div *ngIf="pecaForm.get('custo')?.invalid && pecaForm.get('custo')?.touched" class="p-invalid">Custo
+                    é obrigatório</div>
+                </div>
+              </td>
+              <td>
+                <div class="p-field">
+                  <label for="cor" class="p-d-block label">Cor</label>
+                  <input type="text" id="cor" placeholder="vermelho" formControlName="cor" class="p-inputtext" />
+                  <div *ngIf="pecaForm.get('cor')?.invalid && pecaForm.get('cor')?.touched" class="p-invalid">Cor é
+                    obrigatória</div>
+                </div>
+              </td>
+              <td>
+                <div class="p-field">
+                  <label for="material" class="p-d-block label">Material</label>
+                  <input type="text" id="material" placeholder="aço inox" formControlName="material"
+                    class="p-inputtext" />
+                  <div *ngIf="pecaForm.get('material')?.invalid && pecaForm.get('material')?.touched" class="p-invalid">
+                    Material é obrigatório</div>
+                </div>
+              </td>
+              <td>
+                <div class="p-field">
+                  <label for="materialFabricacao" class="p-d-block label">Material de Fabricação</label>
+                  <input type="text" id="materialFabricacao" placeholder="plástico" formControlName="materialFabricacao"
+                    class="p-inputtext" />
+                  <div
+                    *ngIf="pecaForm.get('materialFabricacao')?.invalid && pecaForm.get('materialFabricacao')?.touched"
+                    class="p-invalid">Material de Fabricação é obrigatório</div>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <div class="p-field">
+            <button style="background-color: #3B82F6;" pButton type="submit" class="p-button-primary" (click)="salvar()" [disabled]="pecaForm?.invalid"><i class="pi pi-save"></i>Salvar</button>
+            <button style="background-color: red;" pButton type="button" class="p-button-secondary" (click)="cancelar()"><i class="pi pi-times"></i>Cancelar</button>
+          </div>
+        </form>
+      
+      </div>
+    </div>
+  </div>
+</div>
